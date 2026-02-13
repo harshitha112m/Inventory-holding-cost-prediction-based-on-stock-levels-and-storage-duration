@@ -1,34 +1,57 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.App {
+  min-height: 100vh;
+  display: flex;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 16rem;
+  background-color: rgb(15 23 42);
+  border-right: 1px solid rgb(30 41 59);
+  z-index: 40;
+  overflow-y: auto;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.main-content {
+  margin-left: 16rem;
+  flex: 1;
+  min-height: 100vh;
 }
 
-.App-link {
-    color: #61dafb;
+.chart-container {
+  position: relative;
+  height: 300px;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.metric-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  border-left: 3px solid rgb(14 165 233);
+}
+
+.sidebar-link {
+  transition: all 0.15s ease-in-out;
+}
+
+.sidebar-link:hover {
+  background-color: rgba(51, 65, 85, 0.4);
+  transform: translateX(4px);
+}
+
+.sidebar-link.active {
+  background-color: rgb(51 65 85);
+  border-left: 3px solid rgb(14 165 233);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
 }
